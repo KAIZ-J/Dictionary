@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Audiowide|Inter|Atma|Poppins|Montserrat' />
+     <script src='https://kit.fontawesome.com/9603c04a31.js' crossorigin='anonymous'></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+    <nav>
+        <div id="logo">
+            <img src="image.png" alt="">
+        </div>
+        <div id="page-links">
+            <a href="#">About Us</a>
+            <a href="#">History</a>
+        </div>
+    </nav>
+     <audio src="https://api.dictionaryapi.dev/media/pronunciations/en/word-us.mp3" id="pronunciationsAudio"></audio>
+    <form id="input-container">
+        <input type="input" placeholder="Search for a word..." id="word"> 
+    <button type="submit" id="submit-word"><i class="fa-solid fa-search search-btn"></i></button> 
+    </form>
+    <br>
+    <div id="container">
+      <p style="text-align: center;">You haven't searched anything yet!</p>
+    </div>
+    <br>
+    <div id="extras-container">
+        <span style="font-size: 1.5rem">Extras✨</span>
+    <button type="button" onclick="randomWord()"><i class="fa-solid fa-dice"></i><span>Random Word</span></button>
+    <button type="button"><i class="fa-solid fa-calendar"></i><span>Today's Word</span></button>
+   <a href="https://faiz-hangman.netlify.app/" target="_blank"><button><i class="fa-solid fa-brain"></i><span>Play word guessing game</span></button></a>
+    </div>
+    <dialog id="dialog"></dialog>
+    <script src="script.js"> </script>
+</body>
+</html>
