@@ -240,3 +240,11 @@ background-color: var(--secondary);
                 content: '...';
             }
         }
+dialog{
+    width: 250px;
+    background-color: var(--background);
+    border: 5px solid var(--primary);
+    text-align: center;
+    color: var(--text);
+    border-radius: 10px;
+}
