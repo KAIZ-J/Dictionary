@@ -1,9 +1,23 @@
  const submitWord = document.getElementById("submit-word")
  const dialog = document.getElementById("dialog")
+ let words10K = [];
+ const searchSuggestions = document.getElementById("search-suggestions")
         const pronunciationsAudio = document.getElementById("pronunciationsAudio");
          function playAudio(){
             pronunciationsAudio.play();
         }
+         async function getWords(){
+            try{
+                let response = await fetch ("/words-10k-english.json");
+                let data = await response.json();
+                words10K = data;
+                console.log(words10K[3354])
+            }
+            catch(err){
+                console.log("nooo")
+            }
+        }
+        document.addEventListener("DOMContentLoaded",getWords)
         const container = document.getElementById("container");
         function addContainer(obj){
               let indeX = obj.phonetics.findIndex(el=>el.text!==undefined);
@@ -46,6 +60,9 @@
 
         const form = document.getElementById("input-container");
         const input = document.getElementById("word");
+        input.addEventListener("focusout",()=>{
+            searchSuggestions.style.height="0px"
+        })
         async function getWordDictionary(word){
             try{
       let response  = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
@@ -58,7 +75,9 @@ alert("Please Enter Valid Word!!")
             };
             submitWord.innerHTML=`<i class="fa-solid fa-search search-btn"></i>`;
             input.value="";
-            dialog.close()
+            searchSuggestions.style.height="0px"
+            dialog.close();
+             
         }
         form.addEventListener("submit",(e)=>{
             e.preventDefault();
@@ -99,4 +118,27 @@ alert("Please Enter Valid Word!!")
    `
         }
        }
-       
+       function searching(elem){
+         searchSuggestions.innerHTML=""
+        if(elem.value!==""){
+searchSuggestions.style.height="150px";
+let length = elem.value.length;
+let array = words10K.filter(el=>el.split("").splice(0,length).join("")===elem.value);
+array.forEach(el=>{
+    searchSuggestions.innerHTML+=`<div onclick="searchThis(this)"><i class="fa-solid fa-search"></i><span>${el}</span></div>`
+})
+        }
+        else{
+            searchSuggestions.style.height="0px"
+        }
+        
+       }
+       function searchThis(elem){
+        let word = elem.children[1].textContent;
+        submitWord.innerHTML=` <div id="loading">
+    <span></span>
+    <span></span>
+    <span></span>
+ </div>`
+        getWordDictionary(word);
+       }

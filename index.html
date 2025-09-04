@@ -6,12 +6,17 @@
     <title>Dictionary</title>
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Audiowide|Inter|Atma|Poppins|Montserrat' />
      <script src='https://kit.fontawesome.com/9603c04a31.js' crossorigin='anonymous'></script>
+     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark">
     <nav>
         <div id="logo">
-            <img src="image.png" alt="" title="Version 1.00">
+            <img src="image.png" alt="" title="Version 1.01">
         </div>
         <div id="page-links">
             <a href="#">About Us</a>
@@ -20,8 +25,17 @@
     </nav>
      <audio src="https://api.dictionaryapi.dev/media/pronunciations/en/word-us.mp3" id="pronunciationsAudio"></audio>
     <form id="input-container">
-        <input type="input" placeholder="Search for a word..." id="word"> 
+        <input type="input" placeholder="Search for a word..." id="word" oninput="searching(this)"> 
     <button type="submit" id="submit-word"><i class="fa-solid fa-search search-btn"></i></button> 
+    <div id="search-suggestions">
+        <span>troll</span>
+        <span>tree</span>
+        <span>tracuma</span>
+        <span>threat</span>
+       <span>tea</span>
+       <span>train</span>
+        <span>toddler</span>
+    </div>
     </form>
     <br>
     <div id="container">

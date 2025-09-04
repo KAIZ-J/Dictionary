@@ -61,7 +61,42 @@ body.dark {
             align-items: center;
             justify-content: center;
             margin-top: 80px;
+            position: relative;
         }
+        #search-suggestions{
+            position: absolute;
+            top: 42px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+             width: 70%;
+              max-width: 400px;
+              height: 0px;
+              overflow-y: scroll;
+              transition: height .3s ease;
+              z-index: 1;
+              margin-right: 50px;
+              border-radius: 0px 0px 10px 10px;
+        }
+    
+        #search-suggestions::-webkit-scrollbar{
+            display: none;
+        }
+         #search-suggestions div{
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+              background-color: var(--secondary);
+   cursor: pointer;
+   height: 40px;
+   flex-shrink: 0;
+         }
+          #search-suggestions div:hover{
+            background-color: var(--accent);
+          }
         input::placeholder{
      color: var(--text);
         }
