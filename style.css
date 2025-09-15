@@ -76,23 +76,26 @@ body.dark {
               overflow-y: scroll;
               transition: height .3s ease;
               z-index: 1;
-              margin-right: 50px;
               border-radius: 0px 0px 10px 10px;
+              background: rgb(255, 255, 255,0.1);
+                backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
         }
     
         #search-suggestions::-webkit-scrollbar{
             display: none;
         }
          #search-suggestions div{
-            padding-left: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
             width: 100%;
-              background-color: var(--secondary);
    cursor: pointer;
    height: 40px;
    flex-shrink: 0;
+         }
+         #search-suggestions div i{
+            padding-left: 10px;
          }
           #search-suggestions div:hover{
             background-color: var(--accent);
@@ -105,11 +108,13 @@ body.dark {
             height: 40px;
             border: none;
             outline: none;
-            border-bottom: 2px solid var(--secondary);
+            border-radius: 10px;
             font-size: 1rem;
             max-width: 400px;
-            background: transparent;
+            background: rgb(255, 255, 255,0.1);
             color: var(--text);
+            anchor-name: --input;
+      padding-left: 9px;
         }
         input:focus::placeholder{
             opacity: 0;
@@ -122,13 +127,17 @@ body.dark {
             outline: none;
         }
         #submit-word{
-background-color: var(--secondary);
+            position: fixed;
+            position-anchor: --input;
+            position-area: right;
+            transform: translateX(-50px);
+           
+background-color: transparent;
             width: 50px;
             color: var(--text);
             height: 44px;
             align-content: center;
             text-align: center;
-            border-radius: 0px 20px 20px 0px;
             display: flex;
             justify-content: center;
             align-items: center;
